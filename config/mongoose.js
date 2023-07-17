@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 
 
 
-mongoose.connect('mongodb+srv://karan:karan@cluster0.gfuxd.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(process.env.DB_CONNECT);
 
 const db = mongoose.connection;
 
 db.once('open', function(){
-    console.log('database connected to the server successfully!');
+    console.log('Successfully connected to DB!');
 });
 
 module.exports = db;
